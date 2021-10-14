@@ -10,16 +10,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class ProductController {
+    
     private final ProductRepository productRepository;
 
-    @Autowired //오토와이어드 생략가능이지. 생성자 1개니까.
-    public ProductController(ProductRepository productRepository) {
-        this.productRepository = productRepository;
-
+    @PostConstruct
+    public void init() {
         productRepository.save(new ProductRegistForm("itemA",10000,10));
         productRepository.save(new ProductRegistForm("itemB",12000,30));
         productRepository.save(new ProductRegistForm("itemC",20000,12));
