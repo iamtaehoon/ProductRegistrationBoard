@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--    <link rel="stylesheet" type="text/css" href="../../static/css/product.css">-->
+    <link th:href="@{/css/product.css}" href="../../static/css/product.css" rel="stylesheet" />
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="page_name">상품 등록</div>
+<div class="input_form">
+    <form action="infoForm.html" th:action="@{/product/save}" method="post">
+        <h1>상품 입력</h1>
+        <div class="input_name">
+            <h4>상품명</h4>
+            <input th:name="productName" type="text">
+        </div>
+        <div class="input_price">
+            <h4>가격</h4>
+            <input th:name="productPrice" type="text">
+        </div>
+        <div class="input_quantity">
+            <h4>수량</h4>
+            <input th:name="productCount" type="text">
+        </div>
+    <div class="btn_bar">
+        <button class="submit" type="submit">상품 등록</button>
+        <button class="cancel" type="button" th:onclick="|location.href='@{/product}'|"
+                onclick="location.href = '../product.html'">취소</button>
+    </div>
+
+    </form>
+
+
+</div>
+
+
+</body>
+</html>

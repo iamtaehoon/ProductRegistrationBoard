@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--    <link rel="stylesheet" type="text/css" href="../../static/css/product.css">-->
+    <link th:href="@{/css/product.css}" href="../../static/css/product.css" rel="stylesheet" />
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="page_name">상품 상세 폼</div>
+<div class="input_form">
+    <h1 th:text="${product.getProductId()}">0</h1>
+    <form action="modifyForm.html" method="get">
+        <h1>상품 상세</h1>
+        <div class="input_id">
+            <h4>상품ID</h4>
+            <input type="text" th:value="${product.getProductId()}" value="1" readonly>
+        </div>
+        <div class="input_name">
+            <h4>상품명</h4>
+            <input type="text" th:value="${product.getProductName()}" value="상품명1" readonly>
+        </div>
+        <div class="input_price">
+            <h4>가격</h4>
+            <input type="text" th:value="${product.getProductPrice()}" value="1" readonly>
+        </div>
+        <div class="input_quantity">
+            <h4>수량</h4>
+            <input type="text" th:value="${product.getProductCount()}"value="100000" readonly>
+        </div>
+    <div class="btn_bar">
+        <button class="submit" type="button" th:onclick="|location.href='@{/product/modify(id=${product.getProductId()})}'|"
+                onclick="location.href = 'modifyForm.html'">상품 수정</button>
+        <button class="cancel" type="button" th:onclick="|location.href='@{/product}'|"
+                onclick="location.href = '../product.html'">목록으로</button>
+    </div>
+
+    </form>
+
+
+</div>
+
+
+</body>
+</html>

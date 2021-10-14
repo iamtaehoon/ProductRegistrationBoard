@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<!--    <link rel="stylesheet" type="text/css" href="style.css">-->
+    <link href="../static/css/product.css" th:href="@{/css/product.css}" rel="stylesheet" />
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="page_name">상품 목록</div>
+<div class="register_btn">
+    <button th:onclick="|location.href='@{/product/register}'|"
+            onclick="location.href = 'product/registerForm.html'">상품 등록</button>
+<!--    onclick 만들어줘야함.-->
+</div>
+
+<table class="product_list">
+    <thead>
+    <th>ID</th>
+    <th>상품명</th>
+    <th>가격</th>
+    <th>수량</th>
+    </thead>
+    <tbody>
+    <tr th:each="product: ${productList}">
+        <td th:text="${product.getProductId()}">이이</td>
+        <td th:text="${product.getProductName()}" th:onclick="|location.href='@{/product/info(id=${product.getProductId()})}'|"
+            onclick="location.href = 'product/infoForm.html'">22</td>
+
+        <td th:text="${product.getProductPrice()}">이이</td>
+        <td th:text="${product.getProductCount()}">이이</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
